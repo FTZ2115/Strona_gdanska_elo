@@ -1,0 +1,359 @@
+/*dla calej strony dodane jest marginesy na 0 oraz box-sizing sluzy ze rozmiar jest kalkulowany na kazde urzadzenie */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*oscylowanie body oraz calego html(ukryty przsuwak na dole oraz przewijanie plyne jest) */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+/*oscylowanie body oraz dodane, ze jak zmieniam kolor to nie przechodzi odrazu tylko po chwili(mini przejscie) - ostatnia linia kodu */
+body {
+  background-color: blanchedalmond;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+/*oscylowanie naglowka */
+header {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+  color: white;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Menu paska wyboru */
+/*wyglad oraz ustawienie #menu(ma uzyte ze nie moze sie ruszac) */
+#menu {
+  position: sticky;
+  top: 0;
+  background: #007bff;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  z-index: 1000;
+}
+/*podstawowe upiekszenie linkow jedynie w menu */
+#menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+/*zmiana koloru linku w menu jedynie jak zostanie najechany */
+#menu a:hover {
+  color: yellow;
+}
+/* tu sie konczy menu */
+
+/* Sekcje */
+h2 {
+  text-align: center;
+  color: chocolate;
+  margin-bottom: 15px;
+}
+h3 {
+  text-align: center;
+}
+/*ustawienie id#al na srodek oraz zeby byly przerwy miedzy nimi */
+#al {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+/*wyglad dla tylko tego co znajduje sie w id al a nie calego diva */
+#al > div {
+  background-color: darkgrey;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+/*sluzy do tego ze #al ma stale miejsce i nie moze zostac ruszone  */
+#al > div.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*wyglad zdjec znajdujacych sie w al jedynie */
+#al img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+/*jak najade zdjecia (jedynie te 4 ktore sa w id al) powiekszaja sie o 1.1 */
+#al img:hover {
+  transform: scale(1.1);
+}
+/*podstawowy wyglad linku (ich wszystkich) */
+a {
+  color: red;
+  display: inline-block;
+  background-color: aquamarine;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 4px 8px;
+}
+/*zmiana koloru linku jak najada na niego */
+a:hover {
+  background-color: red;
+  color: aquamarine;
+}
+/* tu sie koncza wszystkie sekcje */
+
+/* Tryb ciemny */
+body.ciemny {
+  background-color: #121212;
+  color: white;
+}
+/*zmiana koloru menu(tego paska co mam rzeczy do przechodzenia na wybrana rzecz */
+body.ciemny #menu {
+  background: #333;
+}
+/*zmiana koloru dla tylko #al a nie calego diva */
+body.ciemny #al > div {
+  background-color: #222;
+  color: #fff;
+}
+/* zmiana koloru stopki po kliknieciu */
+body.ciemny footer {
+  background-color: #000;
+  color: #aaa;
+}
+
+/* Przycisk trybu */
+/*podstawowy wyglad przycisku */
+#tryb {
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+/* jak najade na zmiane tla to sie zmienia przycisk jakby */
+#tryb:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Mapa */
+#mapa-leaflet {
+  height: 400px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* Komentarze */
+/* wyglad tych 2 pierwszy komentarzy oraz zrobienie lini miedzy nimi */
+
+.comment {
+  background-color: white;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+  width: auto;
+  max-width: 45%;
+  word-wrap: break-word;       /* ← Łamie długie ciągi */
+  overflow-wrap: break-word;   /* ← Bez wyjeżdżania poza kartę */
+}
+
+/* Kontener komentarzy */
+.comments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  
+}
+.comment-form {
+  text-align: center;
+  gap: 20px;
+}
+/* --- POLE DO WPISYWANIA KOMENTARZA --- */
+.comment-form textarea {
+  width: 70%;            /* Normalna szerokość */
+  max-width: 600px;      /* Nie większe niż 600px */
+  min-height: 80px;      /* Minimalna wysokość */
+  padding: 10px;
+  resize: none;          /* Bez manualnego przeciągania myszką */
+  height: auto;          /* Automatyczne powiększanie */
+  overflow: hidden;      /* Bez pasków przewijania */
+  border-radius: 8px;
+  
+}
+/* oscylowanie przycisku tam gdzie sa komentarze */
+.comment-form button {
+  padding: 10px 15px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+
+
+/* Newsletter */
+/* oscylowanie calego id newslatter*/
+#newslatter {
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 20px;
+
+}
+/* newslattera przycisk i email oraz telefon */
+#newslatter input, #newslatter button {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #222;
+  color: white;
+  padding: 15px;
+}
+/* zdjecia wyswietlana kolo footera*/
+#obs img {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+/* po prawej nazwa uczelni i moje imie */
+#autor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+#autor p:first-child {
+  border-bottom: 2px solid rgb(0, 140, 255);
+  padding-bottom: 5px;
+  width: max-content;
+  margin: 0 auto;
+}
+
+
+/* do mapy ustawienie oraz rozmiar */
+@media (max-width: 768px) {
+  /* Układ 2 kolumn przy szerokości do 768px */
+#al {
+    display: flex;
+    flex-direction: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Obrazek skalowany poprawnie */
+#al img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Każda "karta" miejsca */
+#al > div {
+    flex: 0 0 calc(50% - 20px);
+    max-width:  calc(50% - 20px);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+#autor {
+  align-items: center;
+  text-align: center;
+}
+#autor p:first-child {
+  width: max-content;
+  margin: 0 auto;
+}
+
+  /* Kontener komentarzy – obok siebie i zawija */
+  .comments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  /* Każdy komentarz dopasowuje się do treści */
+.comment {
+  background-color: white;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  padding: 10px;
+  width: auto;
+  max-width: 45%;
+  min-height: 120px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
+  /* TE DWIE LINIE — zabezpieczają przed wyjechaniem tekstu */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+  .comment-form textarea {
+    width: 90%;
+    max-width: 90%;
+  }
+}
+#newsletter {
+  max-width: 728px;
+}
+
+/* ustawienie ulicy email i numeru tak aby byl na srodku strony czyli pod glownym napisem oraz przerwa byla miedzy nimi*/
+#blok-kk {
+  display: flex;
+  flex-wrap: wrap;       /* pozwala elementom zawijać się przy węższych ekranach */
+  justify-content: center;
+  gap: 20px;
+  width: 100%;           /* zajmuje całą szerokość kontenera */
+  max-width: 900px;      /* maksymalna szerokość dla dużych ekranów */
+  margin: 0 auto;        /* wyśrodkowanie na stronie */
+}
+
+#ulica, #email, #numer {
+  flex: 1 1 200px;       /* elementy dopasowują się i mają minimalną szerokość 200px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;    /* wyrównanie tekstu w środku elementu */
+  min-width: 150px;      /* zabezpieczenie przed zbyt małą szerokością */
+  max-width: 300px;      /* opcjonalnie, żeby nie były za szerokie */
+  box-sizing: border-box;
+  word-wrap: break-word; /* łamanie długich wyrazów */
+  overflow-wrap: break-word;
+}

@@ -1,0 +1,122 @@
+<!--wszystkie linki do plikow pobranych oraz do css i js-->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przewodnik po Gdańsku</title>
+  <link rel="shortcut icon" href="ludzik.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styl.css">
+  <script src="https://kit.fontawesome.com/f6d1647701.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js.js"></script>
+</head>
+
+
+<body>
+    <!-- nasz naglowego to jest-->
+  <header>
+    <h1>Przewodnik po Gdańsku</h1>
+    <h4>Zobacz z nami najpiękniejsze miasto Polskie!</h4>
+    <button id="tryb">Tryb ciemny</button>
+
+    <nav id="menu">
+      <a href="#main">Miejsca</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#komentarze">Komentarze</a>
+    </nav>
+  </header>
+<!--main jest to jakby "to co znajduje sie na srodku calej strony sa (glowne)"-->
+  <main id="main">
+    <section>
+      <h2>Miejsca warte do odwiedzenia:</h2>
+      <div id="al">
+        <div>
+          <h3>Przymorze Wielkie</h3>
+          <img src="przymorze.jpg" alt="przymorze">
+          <p>Przymorze Wielkie jest wschodnią częścią obszaru Przymorze. Leży w mezoregionie Pobrzeże Kaszubskie.</p>
+          <a href="https://pl.wikipedia.org/wiki/Przymorze_(Gda%C5%84sk)">Więcej o Przymorzu</a>
+        </div>
+
+        <div>
+          <h3>Wrzeszcz</h3>
+          <img src="wrzeszcz.jpg" alt="Wrzeszcz">
+          <p>Część Gdańska, znajdująca się na północ od Śródmieścia, podzielona na Wrzeszcz Górny i Dolny.</p>
+          <a href="https://pl.wikipedia.org/wiki/Wrzeszcz">Więcej o Wrzeszczu</a>
+        </div>
+
+        <div>
+          <h3>Gdańsk Główny</h3>
+          <img src="gdanskgl.jpg" alt="Gdańsk Główny">
+          <p>Największa pasażerska stacja kolejowa w Gdańsku, położona przy ulicy Podwale Grodzkie.</p>
+          <a href="https://pl.wikipedia.org/wiki/Gda%C5%84sk_G%C5%82%C3%B3wny">Więcej o Gdańsku Głównym</a>
+        </div>
+
+        <div>
+          <h3>Plaża Jelitkowo</h3>
+          <img src="plaza.jpg" alt="Plaża Jelitkowo">
+          <p>Nadmorska część miasta Gdańska z przystanią morską dla rybaków i letnim kąpieliskiem.</p>
+          <a href="https://pl.wikipedia.org/wiki/Jelitkowo">Więcej o Jelitkowie</a>
+        </div>
+      </div>
+    </section>
+<!--jest to nasza mapa, zostala zmieniona z google mapa na mape-leaflet, ktory jest lepszy-->
+    <section id="mapa">
+      <h2>Mapa najciekawszych miejsc w Gdańsku:</h2>
+      <div id="mapa-leaflet"></div>
+    </section>
+
+<!--kontakt do naszej strony-->
+    <section id="kontakt">
+      <h2>Skontaktuj się z nami:</h2>
+      <div id="blok-kk">
+      <div id="ulica"><i class="fa-solid fa-location-dot"></i> ul. Malika i Diha, 31-420 Gdańsk</div>
+      <div id="email"><i class="fa-solid fa-envelope"></i> kontakt@gdansk.pl</div>
+      <div id="numer"><i class="fa-solid fa-phone"></i> +48 333 444 555</div>
+      </div>
+    </section>
+     <!--to jest to co czesto sie dostaje na stronach -%10 ale masz spam na mailu od nich-->
+    <section id="newslatter">
+      <h2>Newsletter</h2>
+      <p>Zapisz się i otrzymuj aktualności o Gdańsku!</p>
+      <form>
+        <input type="text" placeholder="Imię">
+        <input type="email" placeholder="E-mail">
+        <label><input type="checkbox"> Akceptuję regulamin</label>
+        <button type="submit">Zapisz się</button>
+      </form>
+    </section>
+<!-- sekcja komentarzy dziala, lecz jest bazy danych czyli po odswiezeniu strony znika-->
+    <section id="komentarze">
+      <h2>Komentarze:</h2>
+      <div class="comments">
+        <div class="comment"><strong>Ala:</strong> Super artykuł!</div>
+        <div class="comment"><strong>Bartek:</strong> Bardzo ciekawe, dzięki!</div>
+      </div>
+      <div class="comment-form"><br>
+        <h3>Dodaj komentarz:</h3>
+        <textarea placeholder="Napisz swój komentarz..."></textarea><br>
+        <button id="przycisk">Wyślij</button>
+      </div>
+    </section>
+  </main>
+
+<!--stopka po lewej linki do wsb a po prawej autor-->
+  <footer>
+    <div id="obs">
+      <a href="https://www.merito.pl"><img src="wsb.png" alt="merito"></a>
+      <a href="https://www.merito.pl"><img src="yt.png" alt="yt"></a>
+      <a href="https://www.merito.pl"><img src="fb.png" alt="fb"></a>
+      <a href="https://www.merito.pl"><img src="twitter.png" alt="tw"></a>
+      <a href="https://www.merito.pl"><img src="ig.png" alt="ig"></a>
+    </div>
+    <div id="autor">
+      <p>Projekt WSB Merito Gdańsk 2025–2026</p>
+      <p>Autor projektu: Maksymilian Jędrejek</p>
+    </div>
+  </footer>
+</body>
+</html>
