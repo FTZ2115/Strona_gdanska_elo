@@ -1,4 +1,5 @@
 <!--wszystkie linki do plikow pobranych oraz do css i js-->
+  <script src="js.js"></script>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,7 +12,6 @@
   <script src="https://kit.fontawesome.com/f6d1647701.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="js.js"></script>
 </head>
 
 
@@ -63,6 +63,50 @@
         </div>
       </div>
     </section>
+<!--sekcja faq do najbardziej zadawanych pytan -->
+<section id="faq">
+  <h2>FAQ</h2>
+
+  <div class="accordion">
+
+    <div class="box">
+      <button class="accordionbtn">
+        <span>Ile kosztują przykładowe loty do Gdańska?</span>
+        <i class="fa-solid fa-arrow-down-long"></i>
+      </button>
+      <div class="info">
+        <p class="text">
+          Ceny lotów zaczynają się już od około 100–150 zł, w zależności od przewoźnika i terminu.
+        </p>
+      </div>
+    </div>
+
+    <div class="box">
+      <button class="accordionbtn">
+        <span>Jak dojechać z lotniska do centrum Gdańska?</span>
+        <i class="fa-solid fa-arrow-down-long"></i>
+      </button>
+      <div class="info">
+        <p class="text">
+          Najwygodniej dojechać kolejką PKM lub autobusem 210. Podróż trwa ok. 25–30 minut.
+        </p>
+      </div>
+    </div>
+
+    <div class="box">
+      <button class="accordionbtn">
+        <span>Jakie są najlepsze miejsca do zwiedzania w Gdańsku?</span>
+        <i class="fa-solid fa-arrow-down-long"></i>
+      </button>
+      <div class="info">
+        <p class="text">
+          Najpopularniejsze miejsca to Stare Miasto, Westerplatte, Muzeum II Wojny Światowej i molo w Brzeźnie.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
 <!--jest to nasza mapa, zostala zmieniona z google mapa na mape-leaflet, ktory jest lepszy-->
     <section id="mapa">
       <h2>Mapa najciekawszych miejsc w Gdańsku:</h2>
@@ -98,7 +142,7 @@
       </div>
       <div class="comment-form"><br>
         <h3>Dodaj komentarz:</h3>
-        <textarea placeholder="Napisz swój komentarz..."></textarea><br>
+        <textarea class="comment" placeholder="Napisz swój komentarz..."></textarea><br>
         <button id="przycisk">Wyślij</button>
       </div>
     </section>
